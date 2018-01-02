@@ -15,7 +15,7 @@ package com.c2c.pojo;
  */
 public class person {
     private String name;
-    private Integer age;
+    private Integer age;//年龄
     private String sex;//性别
     private String desc;//描述信息
 
