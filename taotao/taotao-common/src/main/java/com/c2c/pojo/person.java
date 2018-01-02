@@ -17,6 +17,15 @@ public class person {
     private String name;
     private Integer age;
     private String sex;
+    private String desc;
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 
     public String getName() {
         return name;
