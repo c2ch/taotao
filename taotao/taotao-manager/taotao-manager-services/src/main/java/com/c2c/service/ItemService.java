@@ -1,10 +1,10 @@
 package com.c2c.service;
 
-import com.c2c.common.EasyUIResult;
+import com.c2c.result.EasyUIDataGridResult;
 import com.c2c.pojo.TbItem;
 
 /**
- * Copyright: Copyright (c) 2018 linewell
+ * Copyright: Copyright (c) 2018 cc
  *
  * @ClassName: ItemService
  * @Description: 商品服务接口
@@ -31,6 +31,6 @@ public interface ItemService {
      * @param pageSize
      * @return
      */
-    EasyUIResult getItemList(Integer currentPage,Integer pageSize);
+    EasyUIDataGridResult getItemList(Integer currentPage, Integer pageSize);
 
 }

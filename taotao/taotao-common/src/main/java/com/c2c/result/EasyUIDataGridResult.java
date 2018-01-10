@@ -1,11 +1,11 @@
-package com.c2c.common;
+package com.c2c.result;
 
 import java.util.List;
 
 /**
- * Copyright: Copyright (c) 2018 linewell
+ * Copyright: Copyright (c) 2018 cc
  *
- * @ClassName: EasyUIResult
+ * @ClassName: EasyUIDataGridResult
  * @Description: 按照EasyUI官方文档的要求，建立一个符合要求的返回格式类
  *
  *   Easyui中datagrid控件要求的数据格式为：
@@ -18,15 +18,15 @@ import java.util.List;
  * Date         Author          Version            Description
  * ---------------------------------------------------------*
  */
-public class EasyUIResult {
+public class EasyUIDataGridResult {
 
     private long total;
     private List<?> rows;
 
-    public EasyUIResult() {
+    public EasyUIDataGridResult() {
     }
 
-    public EasyUIResult(long total, List<?> rows) {
+    public EasyUIDataGridResult(long total, List<?> rows) {
         this.total = total;
         this.rows = rows;
     }

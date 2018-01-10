@@ -1,6 +1,6 @@
 package com.c2c.service.impl;
 
-import com.c2c.common.EasyUIResult;
+import com.c2c.result.EasyUIDataGridResult;
 import com.c2c.mapper.TbItemMapper;
 import com.c2c.pojo.TbItem;
 import com.c2c.pojo.TbItemExample;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Copyright: Copyright (c) 2018 linewell
+ * Copyright: Copyright (c) 2018 cc
  *
  * @ClassName: ItemServiceImpl
  * @Description: 商品服务接口的实现类
@@ -60,7 +60,7 @@ public class ItemServiceImpl implements ItemService {
      * @return
      */
     @Override
-    public EasyUIResult getItemList(Integer currentPage, Integer pageSize) {
+    public EasyUIDataGridResult getItemList(Integer currentPage, Integer pageSize) {
         TbItemExample example = new TbItemExample();
         //设置分页
         PageHelper.startPage(currentPage,pageSize);
@@ -69,7 +69,7 @@ public class ItemServiceImpl implements ItemService {
         //得到分页详细信息，如总数等等
         PageInfo<TbItem> pageInfo = new PageInfo<TbItem>(tbItems);
         long total = pageInfo.getTotal();
-        EasyUIResult result = new EasyUIResult(total,tbItems);
+        EasyUIDataGridResult result = new EasyUIDataGridResult(total,tbItems);
 
         return result;
     }

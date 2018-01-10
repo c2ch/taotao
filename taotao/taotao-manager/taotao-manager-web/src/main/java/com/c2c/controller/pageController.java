@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Copyright: Copyright (c) 2018 linewell
+ * Copyright: Copyright (c) 2018 cc
  *
  * @ClassName: pageController
  * @Description: 页面展示的Controller

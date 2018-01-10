@@ -8,7 +8,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Copyright: Copyright (c) 2018 linewell
+ * Copyright: Copyright (c) 2018 cc
  *
  * @ClassName: SpringJunitBase
  * @Description: 搭建spring的单元测试类

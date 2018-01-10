@@ -1,6 +1,6 @@
 package com.c2c.controller;
 
-import com.c2c.common.EasyUIResult;
+import com.c2c.result.EasyUIDataGridResult;
 import com.c2c.pojo.TbItem;
 import com.c2c.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Copyright: Copyright (c) 2018 linewell
+ * Copyright: Copyright (c) 2018 cc
  *
  * @ClassName: ItemController
  * @Description: 商品的控制器
@@ -42,9 +42,9 @@ public class ItemController {
 
     @RequestMapping("/list")
     @ResponseBody
-    public EasyUIResult getItemList(@RequestParam(value="page",defaultValue="1") Integer currentPage, @RequestParam(value="rows",defaultValue = "50")Integer pageSize){
+    public EasyUIDataGridResult getItemList(@RequestParam(value="page",defaultValue="1") Integer currentPage, @RequestParam(value="rows",defaultValue = "50")Integer pageSize){
         //查询商品列表
-        EasyUIResult result = itemService.getItemList(currentPage, pageSize);
+        EasyUIDataGridResult result = itemService.getItemList(currentPage, pageSize);
         return result;
     }
 }

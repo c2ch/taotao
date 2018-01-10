@@ -3541,7 +3541,7 @@ function _getInitHtml(themesPath, bodyClass, cssPath, cssData) {
 		'table.ke-zeroborder td {border:1px dotted #AAA;}',
 		'img.ke-flash {',
 		'	border:1px solid #AAA;',
-		'	background-image:url(' + themesPath + 'common/flash.gif);',
+		'	background-image:url(' + themesPath + 'result/flash.gif);',
 		'	background-position:center center;',
 		'	background-repeat:no-repeat;',
 		'	width:100px;',
@@ -3549,7 +3549,7 @@ function _getInitHtml(themesPath, bodyClass, cssPath, cssData) {
 		'}',
 		'img.ke-rm {',
 		'	border:1px solid #AAA;',
-		'	background-image:url(' + themesPath + 'common/rm.gif);',
+		'	background-image:url(' + themesPath + 'result/rm.gif);',
 		'	background-position:center center;',
 		'	background-repeat:no-repeat;',
 		'	width:100px;',
@@ -3557,7 +3557,7 @@ function _getInitHtml(themesPath, bodyClass, cssPath, cssData) {
 		'}',
 		'img.ke-media {',
 		'	border:1px solid #AAA;',
-		'	background-image:url(' + themesPath + 'common/media.gif);',
+		'	background-image:url(' + themesPath + 'result/media.gif);',
 		'	background-position:center center;',
 		'	background-repeat:no-repeat;',
 		'	width:100px;',
@@ -4157,9 +4157,9 @@ _extend(KUploadButton, {
 			'<div class="ke-inline-block ' + cls + '">',
 			(options.target ? '' : '<iframe name="' + target + '" style="display:none;"></iframe>'),
 			(options.form ? '<div class="ke-upload-area">' : '<form class="ke-upload-area ke-form" method="post" enctype="multipart/form-data" target="' + target + '" action="' + url + '">'),
-			'<span class="ke-button-common">',
+			'<span class="ke-button-result">',
 			hiddenElements.join(''),
-			'<input type="button" class="ke-button-common ke-button" value="' + title + '" />',
+			'<input type="button" class="ke-button-result ke-button" value="' + title + '" />',
 			'</span>',
 			'<input type="file" class="ke-upload-file" name="' + fieldName + '" tabindex="-1" />',
 			(options.form ? '</div>' : '</form>'),
@@ -4172,7 +4172,7 @@ _extend(KUploadButton, {
 		self.iframe = options.target ? K('iframe[name="' + target + '"]') : K('iframe', div);
 		self.form = options.form ? K(options.form) : K('form', div);
 		self.fileBox = K('.ke-upload-file', div);
-		var width = options.width || K('.ke-button-common', div).width();
+		var width = options.width || K('.ke-button-result', div).width();
 		K('.ke-upload-area', div).width(width);
 		self.options = options;
 	},
@@ -4227,8 +4227,8 @@ K.uploadbutton = _uploadbutton;
 function _createButton(arg) {
 	arg = arg || {};
 	var name = arg.name || '',
-		span = K('<span class="ke-button-common ke-button-outer" title="' + name + '"></span>'),
-		btn = K('<input class="ke-button-common ke-button" type="button" value="' + name + '" />');
+		span = K('<span class="ke-button-result ke-button-outer" title="' + name + '"></span>'),
+		btn = K('<input class="ke-button-result ke-button" type="button" value="' + name + '" />');
 	if (arg.click) {
 		btn.click(arg.click);
 	}
@@ -5924,14 +5924,14 @@ _plugin('core', function(K) {
 			attrs.src = _undef(attrs.src, '');
 			attrs.width = _undef(attrs.width, 0);
 			attrs.height = _undef(attrs.height, 0);
-			return _mediaImg(self.themesPath + 'common/blank.gif', attrs);
+			return _mediaImg(self.themesPath + 'result/blank.gif', attrs);
 		})
 		.replace(/<a[^>]*name="([^"]+)"[^>]*>(?:<\/a>)?/ig, function(full) {
 			var attrs = _getAttrList(full);
 			if (attrs.href !== undefined) {
 				return full;
 			}
-			return '<img class="ke-anchor" src="' + self.themesPath + 'common/anchor.gif" data-ke-name="' + escape(attrs.name) + '" />';
+			return '<img class="ke-anchor" src="' + self.themesPath + 'result/anchor.gif" data-ke-name="' + escape(attrs.name) + '" />';
 		})
 		.replace(/<script([^>]*)>([\s\S]*?)<\/script>/ig, function(full, attr, code) {
 			return '<div class="ke-script" data-ke-script-attr="' + escape(attr) + '">' + escape(code) + '</div>';
