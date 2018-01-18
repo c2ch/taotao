@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.URLDecoder;
 
 /**
- * Copyright: Copyright (c) 2018 cc
+ *  cc
  *
  * @ClassName: FastDFSClientUtil
  * @Description: FastDFS的工具类

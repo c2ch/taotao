@@ -5,7 +5,7 @@ import com.c2c.result.EasyUITreeNodeResult;
 import java.util.List;
 
 /**
- * Copyright: Copyright (c) 2018 cc
+ *  cc
  *
  * @ClassName: ItemCatService
  * @Description: 商品类目树形的Service

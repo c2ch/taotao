@@ -1,7 +1,7 @@
 package com.c2c.result;
 
 /**
- * Copyright: Copyright (c) 2018 cc
+ *  cc
  *
  * @ClassName: EasyUITreeNodeResult
  * @Description: EasyUI树形返回结果类

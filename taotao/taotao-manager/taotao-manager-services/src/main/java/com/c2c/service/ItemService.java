@@ -2,9 +2,10 @@ package com.c2c.service;
 
 import com.c2c.result.EasyUIDataGridResult;
 import com.c2c.pojo.TbItem;
+import com.c2c.result.TaotaoResult;
 
 /**
- * Copyright: Copyright (c) 2018 cc
+ *  cc
  *
  * @ClassName: ItemService
  * @Description: 商品服务接口
@@ -32,5 +33,24 @@ public interface ItemService {
      * @return
      */
     EasyUIDataGridResult getItemList(Integer currentPage, Integer pageSize);
+
+    /**
+     * 添加商品信息
+     * @param tbItem
+     * @param desc 商品描述，不在TbItem类中，在TbItemDesc中
+     * @param itemParams 商品规格参数
+     * @return
+     */
+    TaotaoResult saveItem(TbItem tbItem,String desc,String itemParams);
+
+
+
+    /**
+     * 根据商品ID展示规格参数信息
+     * @param ItemId
+     * @return
+     */
+    String getItemParamHtml(long ItemId);
+
 
 }

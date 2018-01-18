@@ -4,7 +4,7 @@ import com.c2c.result.PictureResult;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * Copyright: Copyright (c) 2018
+ *
  *
  * @ClassName: PictureService
  * @Description: 图片的service

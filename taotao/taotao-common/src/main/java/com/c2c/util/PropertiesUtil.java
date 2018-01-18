@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Copyright: Copyright (c) 2018
+ *
  *
  * @ClassName: PropertiesUtil
  * @Description: 属性文件的工具类

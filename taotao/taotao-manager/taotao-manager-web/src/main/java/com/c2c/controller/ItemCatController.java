@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * Copyright: Copyright (c) 2018 cc
+ *  cc
  *
  * @ClassName: ItemCatController
  * @Description: 商品类目的controller

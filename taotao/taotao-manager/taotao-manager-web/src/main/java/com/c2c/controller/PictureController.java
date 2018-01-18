@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * Copyright: Copyright (c) 2018
+ *
  *
  * @ClassName: PictureController
  * @Description: 图片上传控制层

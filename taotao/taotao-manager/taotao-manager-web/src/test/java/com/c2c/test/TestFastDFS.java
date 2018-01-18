@@ -5,7 +5,7 @@ import org.csource.fastdfs.*;
 import org.junit.Test;
 
 /**
- * Copyright: Copyright (c) 2018
+ *
  *
  * @ClassName: TestFastDFS
  * @Description:

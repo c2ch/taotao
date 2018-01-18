@@ -1,7 +1,7 @@
 package com.c2c.result;
 
 /**
- * Copyright: Copyright (c) 2018
+ *
  *
  * @ClassName: PictureResult
  * @Description: 利用富文本编辑器上传图片返回的结果类

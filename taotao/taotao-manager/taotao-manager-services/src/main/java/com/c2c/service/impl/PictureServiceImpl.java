@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * Copyright: Copyright (c) 2018
+ *
  *
  * @ClassName: PictureServiceImpl
  * @Description:

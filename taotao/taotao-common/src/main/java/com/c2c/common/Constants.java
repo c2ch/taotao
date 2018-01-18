@@ -1,7 +1,7 @@
 package com.c2c.common;
 
 /**
- * Copyright: Copyright (c) 2018
+ *
  *
  * @ClassName: Constants
  * @Description: 常量类

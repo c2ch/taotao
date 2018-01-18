@@ -3,7 +3,7 @@ package com.c2c.result;
 import java.util.List;
 
 /**
- * Copyright: Copyright (c) 2018 cc
+ *  cc
  *
  * @ClassName: EasyUIDataGridResult
  * @Description: 按照EasyUI官方文档的要求，建立一个符合要求的返回格式类
