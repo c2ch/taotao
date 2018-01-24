@@ -4,7 +4,9 @@ import com.c2c.pojo.TbContent;
 import com.c2c.result.EasyUIDataGridResult;
 import com.c2c.result.TaotaoResult;
 import com.c2c.service.ContentService;
+import com.c2c.util.HttpClientUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,6 +29,13 @@ public class ContentController {
     @Autowired
     private ContentService contentService;
 
+    @Value("${REST_BASE_URL}")
+    private String REST_BASE_URL;
+
+    @Value("${REST_CONTENT_URL}")
+    private String REST_CONTENT_URL;
+
+
 
     /**
      * 根据内容分类id分页查询内容信息
@@ -42,10 +51,17 @@ public class ContentController {
         return  result;
     }
 
+    /**
+     * 新增内容
+     * @param content
+     * @return
+     */
     @RequestMapping("/save")
     @ResponseBody
     public TaotaoResult insertContent(TbContent content) {
         TaotaoResult result = contentService.insertContent(content);
+        //需要进行缓存的同步
+        HttpClientUtil.doGet(REST_BASE_URL+REST_CONTENT_URL+content.getCategoryId());
         return result;
     }
 }

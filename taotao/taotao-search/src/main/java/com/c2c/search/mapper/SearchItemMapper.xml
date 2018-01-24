@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.c2c.search.mapper.SearchItemMapper">
+    <!--<resultMap id="BaseResultMap" type="com.c2c.pojo.TbContent">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="category_id" jdbcType="BIGINT" property="categoryId" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="sub_title" jdbcType="VARCHAR" property="subTitle" />
+        <result column="title_desc" jdbcType="VARCHAR" property="titleDesc" />
+        <result column="url" jdbcType="VARCHAR" property="url" />
+        <result column="pic" jdbcType="VARCHAR" property="pic" />
+        <result column="pic2" jdbcType="VARCHAR" property="pic2" />
+        <result column="created" jdbcType="TIMESTAMP" property="created" />
+        <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+    </resultMap>-->
+
+    <select id="getItemList"  resultType="com.c2c.search.pojo.SearchItem">
+        SELECT
+			a.id,
+			a.title,
+			a.sell_point sellPoint,
+			a.price,
+			a.image,
+			b.`name` categoryName,
+			c.item_desc itemName
+		FROM
+			tb_item a
+		LEFT JOIN tb_item_cat b ON a.cid = b.id
+		LEFT JOIN tb_item_desc c ON a.id = c.item_id
+		WHERE
+			a.`status` = 1
+    </select>
+
+
+</mapper>

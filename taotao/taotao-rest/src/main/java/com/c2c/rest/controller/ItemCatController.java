@@ -2,6 +2,8 @@ package com.c2c.rest.controller;
 
 import com.c2c.rest.result.ItemCatResult;
 import com.c2c.rest.service.ItemCatService;
+import com.c2c.result.TaotaoResult;
+import com.c2c.util.ExceptionUtil;
 import com.c2c.util.JsonUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +59,21 @@ public class ItemCatController {
         mappingJacksonValue.setJsonpFunction(callback);
         return mappingJacksonValue;*/
 
-
     }
 
+    /**
+     * 缓存同步服务
+     * @return
+     */
+    @RequestMapping("/sync")
+    @ResponseBody
+    public TaotaoResult syncItemCatList(){
+        try {
+            TaotaoResult result = itemCatService.syncItemCatList();
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+        }
+    }
 }

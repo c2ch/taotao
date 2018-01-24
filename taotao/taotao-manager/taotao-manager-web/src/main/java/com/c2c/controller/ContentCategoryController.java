@@ -29,6 +29,11 @@ public class ContentCategoryController {
     @Autowired
     private ContentCategoryService contentCategoryService;
 
+    /**
+     * 查询内容分类管理的列表展示（树形结构）
+     * @param
+     * @return
+     */
     @RequestMapping("/list")
     @ResponseBody
     public List<EasyUITreeNodeResult> getCategoryList(@RequestParam(value="id", defaultValue="0")long parentId) {

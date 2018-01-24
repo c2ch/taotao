@@ -1,6 +1,7 @@
 package com.c2c.rest.service;
 
 import com.c2c.rest.result.ItemCatResult;
+import com.c2c.result.TaotaoResult;
 
 /**
  * @ClassName: ItemCatService
@@ -20,4 +21,10 @@ public interface ItemCatService {
      * @return
      */
     ItemCatResult getItemCatList();
+
+    /**
+     * 缓存同步
+     * @return
+     */
+    TaotaoResult syncItemCatList();
 }

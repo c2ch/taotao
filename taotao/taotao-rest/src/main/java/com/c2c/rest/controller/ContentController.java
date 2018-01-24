@@ -25,16 +25,19 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/content")
-public class CocntentController {
+public class ContentController {
 
     @Autowired
     private ContentService contentService;
 
-
+    /**
+     * 根据分类id查询内容列表
+     * @param cid
+     * @return
+     */
     @RequestMapping("/{cid}")
     @ResponseBody
     public TaotaoResult getCotentList(@PathVariable long cid) {
-
         try {
             List<TbContent> list = contentService.getContentList(cid);
             return TaotaoResult.ok(list);
@@ -45,5 +48,22 @@ public class CocntentController {
         }
     }
 
+    /**
+     * 根据cid同步内容列表缓存
+     * @param cid
+     * @return
+     */
+    @RequestMapping("/sync/{cid}")
+    @ResponseBody
+    public TaotaoResult syncContentList(@PathVariable long cid) {
+        try {
+            TaotaoResult result = contentService.syncContentList(cid);
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            //如果调用服务出错返回一个结果给调用者
+            return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+        }
+    }
 
 }

@@ -32,16 +32,16 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 
     /**
      * 查询内容分类管理的列表展示（树形结构）
-     * @param patenId
+     * @param parentId
      * @return
      */
     @Override
-    public List<EasyUITreeNodeResult> getContentCategoryList(long patenId) {
+    public List<EasyUITreeNodeResult> getContentCategoryList(long parentId) {
 
         //查询内容分类列表
         TbContentCategoryExample example = new TbContentCategoryExample();
         TbContentCategoryExample.Criteria criteria = example.createCriteria();
-        criteria.andParentIdEqualTo(patenId);
+        criteria.andParentIdEqualTo(parentId);
         List<TbContentCategory> tbContentCategories = categoryMapper.selectByExample(example);
         //返回EasyUI树形结构
         List<EasyUITreeNodeResult> resultList = new ArrayList<EasyUITreeNodeResult>();
