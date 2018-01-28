@@ -39,7 +39,6 @@ public class SearchController {
                          @RequestParam(defaultValue = "1") int page,
                          @RequestParam(defaultValue = "30") int rows,
                          Model model){
-
         //get请求字符集转换
         try {
             keyword = new String(keyword.getBytes("ISO8859-1"),"UTF-8");
@@ -53,7 +52,6 @@ public class SearchController {
         model.addAttribute("totalPages", result.getPageCount());
         model.addAttribute("itemList", result.getItemList());
         model.addAttribute("page", result.getCurentPage());
-
         //返回逻辑视图
         return "search";
     }

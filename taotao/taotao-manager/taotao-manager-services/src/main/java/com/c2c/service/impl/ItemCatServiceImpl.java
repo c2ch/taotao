@@ -32,6 +32,11 @@ public class ItemCatServiceImpl implements ItemCatService {
     @Autowired
     private TbItemCatMapper tbItemCatMapper;
 
+    /**
+     * 根据父Id查询商品子类目
+     * @param parentId
+     * @return
+     */
     @Override
     public List<EasyUITreeNodeResult> getTreeNode(long parentId) {
 
@@ -54,5 +59,16 @@ public class ItemCatServiceImpl implements ItemCatService {
         }
 
         return resultList;
+    }
+
+    /**
+     * 根据id查询商品类目
+     * @param id
+     * @return
+     */
+    @Override
+    public TbItemCat getItemCat(long id) {
+        TbItemCat tbItemCat = tbItemCatMapper.selectByPrimaryKey(id);
+        return tbItemCat;
     }
 }

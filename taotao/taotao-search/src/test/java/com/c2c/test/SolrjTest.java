@@ -66,4 +66,5 @@ public class SolrjTest {
             System.out.println(result.get("item_desc"));
         }
     }
+
 }

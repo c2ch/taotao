@@ -1,6 +1,7 @@
 package com.c2c.search.service;
 
 import com.c2c.result.TaotaoResult;
+import com.c2c.search.pojo.SearchItem;
 
 /**
  * @ClassName: SearchItemSerivce
@@ -30,4 +31,21 @@ public interface SearchItemSerivce {
      * @throws Exception
      */
    TaotaoResult search(String queryString,int page,int rows) throws Exception;
+
+
+    /**
+     * 后台修改商品信息后同步索引库服务
+     * @param item
+     * @return
+     * @throws Exception
+     */
+    TaotaoResult syncIndex(SearchItem item) throws Exception;
+
+    /**
+     * 后台删除商品信息后删除索引服务
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    TaotaoResult deleteIndex(String id) throws  Exception;
 }

@@ -177,4 +177,30 @@ public class ItemServiceImpl implements ItemService {
 
         return sb.toString();
     }
+
+    /**
+     * 根据商品Id删除商品信息
+     * @param ids
+     * @return
+     */
+    @Override
+    public TaotaoResult deleteItemById(String ids) {
+        //先判断Id是否是多个
+        if(ids.indexOf(",")>0){
+            String[] id = ids.split(",");
+            for (int i = 0; i < id.length; i++) {
+                //先删除tbItem
+                tbItemMapper.deleteByPrimaryKey(Long.parseLong(id[i]));
+                //再删除tbItemDesc
+                tbItemDescMapper.deleteByPrimaryKey(Long.parseLong(id[i]));
+            }
+        }else{
+            //先删除tbItem
+            tbItemMapper.deleteByPrimaryKey(Long.parseLong(ids));
+            //再删除tbItemDesc
+            tbItemDescMapper.deleteByPrimaryKey(Long.parseLong(ids));
+        }
+
+        return TaotaoResult.ok();
+    }
 }

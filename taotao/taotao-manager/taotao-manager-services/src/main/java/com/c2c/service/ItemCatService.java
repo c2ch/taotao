@@ -1,5 +1,6 @@
 package com.c2c.service;
 
+import com.c2c.pojo.TbItemCat;
 import com.c2c.result.EasyUITreeNodeResult;
 
 import java.util.List;
@@ -19,5 +20,17 @@ import java.util.List;
  */
 public interface ItemCatService {
 
+    /**
+     * 根据父Id查询商品子类目
+     * @param parentId
+     * @return
+     */
     List<EasyUITreeNodeResult> getTreeNode(long parentId);
+
+    /**
+     * 根据id查询商品子类目
+     * @param id
+     * @return
+     */
+    TbItemCat getItemCat(long id);
 }

@@ -30,7 +30,11 @@ public class ItemCatController {
     @Autowired
     private ItemCatService itemCatService;
 
-
+    /**
+     * 根据父Id查询商品子类目
+     * @param parentId
+     * @return
+     */
     @RequestMapping("/list")
     @ResponseBody
     public List<EasyUITreeNodeResult> getTreeNode(@RequestParam(value="id",defaultValue = "0") long parentId){

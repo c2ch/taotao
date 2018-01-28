@@ -43,7 +43,12 @@ public interface ItemService {
      */
     TaotaoResult saveItem(TbItem tbItem,String desc,String itemParams);
 
-
+    /**
+     * 根据商品的id删除商品
+     * @param ids
+     * @return
+     */
+    TaotaoResult deleteItemById(String ids);
 
     /**
      * 根据商品ID展示规格参数信息

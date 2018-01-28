@@ -1,13 +1,13 @@
 package com.c2c.search.controller;
 
 import com.c2c.result.TaotaoResult;
+import com.c2c.search.pojo.SearchItem;
 import com.c2c.search.service.SearchItemSerivce;
 import com.c2c.util.ExceptionUtil;
+import com.c2c.util.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName: SearchItemController
@@ -59,6 +59,44 @@ public class SearchItemController {
             keyword = new String(keyword.getBytes("ISO8859-1"), "UTF-8");
             TaotaoResult result = searchItemSerivce.search(keyword, page, rows);
             return  result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+        }
+    }
+
+    /**
+     * 后台修改商品信息后同步索引库服务
+     * @param param
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/syncIndex")
+    @ResponseBody
+    public TaotaoResult syncIndex(@RequestParam String param){
+        try {
+            param = new String(param.getBytes("ISO8859-1"),"UTF-8");
+           SearchItem searchItem = JsonUtils.jsonToPojo(param,SearchItem.class);
+            TaotaoResult result = searchItemSerivce.syncIndex(searchItem);
+            return  result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+        }
+    }
+
+    /**
+     * 后台删除商品信息后删除索引服务
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/delete/{id}")
+    @ResponseBody
+    public TaotaoResult deleteIndex(@PathVariable String id) {
+        try {
+            TaotaoResult result = searchItemSerivce.deleteIndex(id);
+            return result;
         } catch (Exception e) {
             e.printStackTrace();
             return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));

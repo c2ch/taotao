@@ -57,6 +57,7 @@ public class SearchItemSerivceImpl implements SearchItemSerivce {
             //写入索引库
             solrServer.add(document);
         }
+
         //提交
         solrServer.commit();
         return TaotaoResult.ok();
@@ -96,5 +97,46 @@ public class SearchItemSerivceImpl implements SearchItemSerivce {
         searchResult.setCurentPage(page);
 
         return TaotaoResult.ok(searchResult);
+    }
+
+
+    /**
+     * 后台修改商品信息后同步索引库服务
+     * @param item
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public TaotaoResult syncIndex(SearchItem item) throws Exception {
+        //创建文档对象
+        SolrInputDocument document = new SolrInputDocument();
+        //修改或者增加索引，如果id在索引库中存在则修改
+        document.addField("id", item.getId());
+        document.addField("item_title",item.getTitle());
+        document.addField("item_sell_point",item.getSellPoint());
+        document.addField("item_price",item.getPrice());
+        document.addField("item_image",item.getImage());
+        document.addField("item_category_name",item.getCategoryName());
+        document.addField("item_desc",item.getItemDesc());
+        //添加到文档
+        solrServer.add(document);
+        //提交
+        solrServer.commit();
+
+        return TaotaoResult.ok();
+    }
+
+    /**
+     * 后台删除商品信息后删除索引服务
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public TaotaoResult deleteIndex(String id) throws Exception {
+        //根据Id删除索引
+        solrServer.deleteById(id);
+        solrServer.commit();
+        return TaotaoResult.ok();
     }
 }
