@@ -42,7 +42,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private JedisClient jedisClient;
-    @Value("{ITEM_KEY}")
+    @Value("${ITEM_KEY}")
     private String ITEM_KEY;
     @Value("${ITEM_BASE_INFO_KEY}")
     private String ITEM_BASE_INFO_KEY;

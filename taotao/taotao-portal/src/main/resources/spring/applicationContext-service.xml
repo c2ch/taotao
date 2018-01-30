@@ -11,5 +11,11 @@
     <context:component-scan base-package="com.c2c.portal.service"/>
     <!-- 加载配置文件 -->
     <context:property-placeholder location="classpath:properties/*.properties" />
+
+    <!--FreeMarker的配置-->
+    <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/ftl/"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
 </beans>
 
