@@ -41,7 +41,7 @@ public class HttpClientTest {
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
         //2、创建HttpGet对象
-        HttpGet get = new HttpGet("http://localhost:8888");
+        HttpGet get = new HttpGet("http://localhost:8083/rest/content/89");
 
         //3、执行请求
         CloseableHttpResponse response = httpClient.execute(get);

@@ -3,7 +3,9 @@ package com.c2c.sso.controller;
 import com.c2c.result.TaotaoResult;
 import com.c2c.sso.service.LoginService;
 import com.c2c.util.ExceptionUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,9 +61,15 @@ public class LoginController {
      */
     @RequestMapping("/user/token/{token}")
     @ResponseBody
-    public TaotaoResult getUserByToken(@PathVariable String token){
+    public Object getUserByToken(@PathVariable String token,String callback){
         try {
             TaotaoResult result = loginService.getUserByToken(token);
+            //支持jsonp调用
+            if (StringUtils.isNotBlank(callback)) {
+                MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(result);
+                mappingJacksonValue.setJsonpFunction(callback);
+                return mappingJacksonValue;
+            }
             return result;
         } catch (Exception e) {
             e.printStackTrace();
@@ -75,15 +83,10 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/user/logout/{token}")
-    @ResponseBody
-    public TaotaoResult logout(@PathVariable String token,
+    public String logout(@PathVariable String token,
                  HttpServletRequest request,HttpServletResponse response){
-        try {
-            TaotaoResult result = loginService.logout(request, response, token);
-            return result;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
-        }
+        loginService.logout(request, response, token);
+        return "redirect:/page/login";
+
     }
 }

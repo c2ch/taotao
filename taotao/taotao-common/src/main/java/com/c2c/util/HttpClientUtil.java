@@ -10,7 +10,6 @@ import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
@@ -41,11 +40,6 @@ public class HttpClientUtil {
 
 			// 创建http GET请求
 			HttpGet httpGet = new HttpGet(uri);
-			//设置请求的报文头部的编码
-			httpGet.setHeader(new BasicHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8"));
-
-			//设置期望服务端返回的编码
-			httpGet.setHeader(new BasicHeader("Accept", "text/plain;charset=utf-8"));
 			// 执行请求
 			response = httpclient.execute(httpGet);
 			// 判断返回状态是否为200
@@ -79,11 +73,7 @@ public class HttpClientUtil {
 		try {
 			// 创建Http Post请求
 			HttpPost httpPost = new HttpPost(url);
-			//设置请求的报文头部的编码
-			httpPost.setHeader(new BasicHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8"));
 
-			//设置期望服务端返回的编码
-			httpPost.setHeader(new BasicHeader("Accept", "text/plain;charset=utf-8"));
 			// 创建参数列表
 			if (param != null) {
 				List<NameValuePair> paramList = new ArrayList<>();
