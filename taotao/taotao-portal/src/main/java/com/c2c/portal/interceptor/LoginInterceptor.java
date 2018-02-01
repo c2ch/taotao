@@ -47,7 +47,8 @@ public class LoginInterceptor implements HandlerInterceptor {
             return false;
         }
 
-
+        //把用户对象放入到request中,给提交订单使用
+        httpServletRequest.setAttribute("user",user);
         //放行
         return true;
     }
